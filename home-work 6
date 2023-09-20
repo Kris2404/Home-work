@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <script>
+function Human(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const people = [
+  new Human("Анна", 30),
+  new Human("Иван", 25),
+  new Human("Мария", 35),
+  new Human("Петр", 28),
+  new Human("Елена", 40)
+];
+
+
+function sort(peopleArray) {
+  return peopleArray.sort((a, b) => a.age - b.age);
+}
+
+function sort2(peopleArray) {
+  return peopleArray.sort((a, b) => b.age - a.age);
+}
+
+console.log("Сортировка по возрастанию:");
+const sorted= sort(people);
+console.log(sorted.map(person => person.age).join(" "));
+
+console.log("Сортировка по убыванию:");
+const sorted2= sort2(people);
+console.log(sorted.map(person => person.age).join(" "));
+
+
+    </script>
+</body>
+</html>
