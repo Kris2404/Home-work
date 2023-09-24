@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+class Animal {
+    constructor(food, location) {
+    this.food = food;
+    this.location = location;
+  }
+
+  makeNoise() {
+    console.log("Така тварина спить");
+  }
+
+  eat() {
+    console.log(`Тварина їсть ${this.food}`);
+  }
+
+  sleep() {
+    console.log("Тварина спить");
+  }
+}
+
+class Dog extends Animal {
+    constructor(food, location, breed) {
+    super(food, location);
+    this.breed = breed;
+  }
+
+  makeNoise() {
+    console.log("Собака гавкає");
+  }
+
+  eat() {
+    console.log(`Собака їсть ${this.food}`);
+  }
+}
+
+class Cat extends Animal {
+    constructor(food, location, color) {
+    super(food, location);
+    this.color = color;
+  }
+
+  makeNoise() {
+    console.log("Кіт муркотить");
+  }
+
+  eat() {
+    console.log(`Кіт їсть ${this.food}`);
+  }
+}
+
+class Horse extends Animal {
+    constructor(food, location, breed) {
+    super(food, location);
+    this.breed = breed;
+  }
+
+  makeNoise() {
+    console.log("Кінь фрррр");
+  }
+
+  eat() {
+    console.log(`Кінь їсть ${this.food}`);
+  }
+}
+
+class Veterinarian {
+    treatAnimal(animal) {
+    console.log(`Тварина їсть ${animal.food} та знаходиться в локації ${animal.location}`);
+  }
+}
+
+const animals = [
+  new Dog("кісточки", "двір", "Бульдог"),
+  new Cat("рибу", "квартира", "Сіамський"),
+  new Horse("сіно", "конюшня", "Андалузійський"),
+];
+
+const veterinarian = new Veterinarian();
+
+for (const animal of animals) {
+  veterinarian.treatAnimal(animal);
+  animal.eat();
+} 
+
+    </script>
+</body>
+</html>
