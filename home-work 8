@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Работа с узлами DOM</title>
+    <style>
+        .select {
+            color: tomato;
+        }
+
+        .black {
+            color: black;
+        }
+
+        input {
+            width: 200px;
+            padding: .5rem;
+            margin-bottom: .5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+    </ul>
+    <br />
+    <input type="button" value="Выбрать первый элемент" onclick="selectFirst()" /><br />
+    <input type="button" value="Выбрать последний элемент" onclick="selectLast()" /><br />
+    <input type="button" value="Выбрать следующий элемент" onclick="selectNext()" /><br />
+    <input type="button" value="Выбрать предыдущий элемент" onclick="selectPrevious()" /><br />
+    <input type="button" value="Добавить элемент у кінець" onclick="addItemToEnd()" /><br />
+    <input type="button" value="Удалить элемент з початку" onclick="removeFirstItem()" /><br />
+    <input type="button" value="Удалить элемент з кінця" onclick="removeLastItem()" /><br />
+    <input type="button" value="Удалить элемент з середини" onclick="removeMiddleItem()" /><br />
+    <input type="button" value="Добавить в начало" onclick="addItemToBeginning()" /><br />
+
+    <script>
+        function selectFirst() {
+            const list = document.getElementById("list");
+            const firstItem = list.firstElementChild;
+            firstItem.classList.add("select");
+            clearOtherItems(firstItem);
+        }
+
+        function selectLast() {
+            const list = document.getElementById("list");
+            const lastItem = list.lastElementChild;
+            lastItem.classList.add("select");
+            clearOtherItems(lastItem);
+        }
+
+        function selectNext() {
+            const selected = document.querySelector(".select");
+            if (selected) {
+                selected.classList.remove("select");
+                const nextItem = selected.nextElementSibling;
+                if (nextItem) {
+                    nextItem.classList.add("select");
+                }
+            }
+        }
+
+        function selectPrevious() {
+            const selected = document.querySelector(".select");
+            if (selected) {
+                selected.classList.remove("select");
+                const previousItem = selected.previousElementSibling;
+                if (previousItem) {
+                    previousItem.classList.add("select");
+                }
+            }
+        }
+
+        function clearOtherItems(exceptItem) {
+            const list = document.getElementById("list");
+            const items = list.children;
+            for (const item of items) {
+                if (item !== exceptItem) {
+                    item.classList.remove("select");
+                }
+            }
+        }
+
+        function addItemToEnd() {
+            const list = document.getElementById("list");
+            const newItem = document.createElement("li");
+            newItem.textContent = "Новый элемент";
+            list.appendChild(newItem);
+        }
+
+        function removeFirstItem() {
+            const list = document.getElementById("list");
+            const firstItem = list.firstElementChild;
+            if (firstItem) {
+                list.removeChild(firstItem);
+            }
+        }
+
+        function removeLastItem() {
+            const list = document.getElementById("list");
+            const lastItem = list.lastElementChild;
+            if (lastItem) {
+                list.removeChild(lastItem);
+            }
+        }
+
+        function removeMiddleItem() {
+            const list = document.getElementById("list");
+            const middleIndex = Math.floor(list.children.length / 2);
+            const middleItem = list.children[middleIndex];
+            if (middleItem) {
+                list.removeChild(middleItem);
+            }
+        }
+
+        function addItemToBeginning() {
+            const list = document.getElementById("list");
+            const newItem = document.createElement("li");
+            newItem.textContent = "Новый элемент";
+            const firstItem = list.firstElementChild;
+            list.insertBefore(newItem, firstItem);
+        }
+    </script>
+</body>
+
+</html>
