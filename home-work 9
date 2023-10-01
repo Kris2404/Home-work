@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка телефону</title>
+</head>
+<body>
+    <input type="text" id="phoneInput" placeholder="Введіть номер телефону (000-000-00-00)">
+    <button id="checkButton">Зберегти</button>
+    <div id="errorDiv" style="color: red;"></div>
+    
+     <script>
+       /*
+    1. Реалізуйте програму перевірки телефону
+    Використовуючи JS Створіть поле для введення телефону та кнопку збереження<br>
+    Користувач повинен ввести номер телефону у форматі 000-000-00-00
+
+    Після того як користувач натискає кнопку зберегти перевірте правильність введення номера, якщо номер
+    правильний
+    зробіть зелене тло і використовуючи document.location переведіть користувача на сторінку
+    https://risovach.ru/upload/2013/03/mem/toni-stark_13447470_big_.jpeg
+    якщо буде помилка, відобразіть її в діві до input.
+*/
+        const phoneInput = document.getElementById("phoneInput");
+        const checkButton = document.getElementById("checkButton");
+        const errorDiv = document.getElementById("errorDiv");
+
+        function PhoneNumber(phoneNumber) {
+            const regex = /^\d{3}-\d{3}-\d{2}-\d{2}}$/;
+            return regex.test(phoneNumber);
+        }
+
+        checkButton.addEventListener("click", function () {
+            const phoneNumber = phoneInput.value;
+            if (PhoneNumber(phoneNumber)) {
+                window.location.href = "https://risovach.ru/upload/2013/03/mem/toni-stark_13447470_big_.jpeg";
+            } else {
+                errorDiv.textContent = "Некоректний формат номера телефону. Введіть у форматі 000-000-00-00.";
+            }
+        });
+    </script>
+
+     
+    <style>
+        /*
+        2. Створіть на сторінці div і дайте йому зовнішній відступ 150 пікселів. Використовуючи 
+        JS виведіть у консоль відступ
+        */
+        .my-div {
+            margin: 150px;
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="my-div"></div>
+
+    <script>
+        const div = document.querySelector('.my-div');
+        const computedStyle = window.getComputedStyle(div);
+        const margin = computedStyle.getPropertyValue('margin');
+
+        console.log('Зовнішній відступ (margin):', margin);
+    </script>
+</body>
+</html>
