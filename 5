@@ -3,57 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Wallet</title>
+    <title>Document</title>
+    <script src="start.js"></script>
 </head>
-<body>
-    <h1>Crypto Wallet</h1>
-    <div id="output"></div>
-
-    <script>
-        const cryptoWallet = {
-            ownerName: "",
-            currencies: {
-                bitcoin: {
-                    currencyName: "Bitcoin",
-                    coins: 0,
-                    exchangeRate: 2576351.92,
-                },
-
-                ethereum: {
-                    currencyName: "Ethereum",
-                    coins: 0,
-                    exchangeRate: 158034.45,
- 
-                },
-                stella: {
-                    currencyName: "Stellar",
-                    coins: 0,
-                    exchangeRate: 11.40,
-                }
-            },
-            showCurrencyInfo(currency, coins) {
-                const currencyData = this.currencies[currency];
-                const balanceInUAH = coins * currencyData.exchangeRate;
-                const outputDiv = document.getElementById("output");
-                outputDiv.innerHTML = `
-                    <p>Здравствуйте, ${this.ownerName}!</p>
-                    <p>На вашем балансе ${currencyData.currencyName} (${currencyData.logo}) осталось ${coins} монет.</p>
-                    <p>Если вы сегодня продадите их, то получите ${balanceInUAH} грн.</p>
-                `;
-            }
-        };
-
-        cryptoWallet.ownerName = prompt("Введите ваше имя:");
-
-        const selectedCurrency = prompt("Выберите валюту: Bitcoin, Ethereum или Stellar").toLowerCase();
-        const coinCount = parseFloat(prompt("Введите количество монет:"));
-
-        if (cryptoWallet.currencies[selectedCurrency]) {
-            cryptoWallet.currencies[selectedCurrency].coins = coinCount;
-            cryptoWallet.showCurrencyInfo(selectedCurrency, coinCount);
-        } else {
-            alert("Выбранной валюты не существует в кошельке.");
-        }
-    </script>
-</body>
 </html>
