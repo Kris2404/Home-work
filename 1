@@ -7,3 +7,24 @@
     <script src="start.js"></script>
 </head>
 </html>
+
+// створити 4 змінні з числовими значенями і порахувати їх сумму та вивестив в консоль.лог
+let firtValue = 5;
+let secondValue = 4;
+let thirdValue = 3;
+let fourthValue = 2;
+let reslut = firtValue+secondValue+thirdValue+fourthValue;
+console.log(reslut);
+
+// порахувати середнє арефметичне ціх значень та вивестив в консоль.лог
+let averege = (5+4+3+2)/4;
+console.log(averege);
+
+// Створити змінну в якій розмістит розмір знижки будьяке числове число, отримати від користувача 
+// (за допомогою prompt)  кількість товарів і вартість товару,  вивести в консоль сумму товару - знижка.
+let discount = 20;
+let price = prompt('Вкажіть кількість товару');
+let amount = prompt('Вкажіть вартість товару');
+let totalPrise = Number(price) * Number(amount);
+let discountPrice = (totalPrise * discount) / 100;
+console.log(`сума до оплати ${discountPrice}`);
