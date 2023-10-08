@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="start.js"></script>
+</head>
+</html>
+
+
+// Напишіть змінні які питають логін та пароль з prompt  якщо логін admin і пароль 12345 
+//вірні то виводити повідомлення "вітаємо в системі" якщо ні то виводити "Пароль логін не вірні"
+
+let login = prompt('Введіть свій логін')
+let password = prompt ('Введіть свій пароль')
+
+if (login === 'admin' && password === '12345') {
+    console.log('вітаємо в системі');
+}
+else {
+    console.log('Пароль логін не вірні');
+}
+
+//Спитати в користувача вік, далі використовуючи тернарний оператор ( це скорочений запис іf ) 
+//створити змінну яка отримує true якщо вік більше 18  i false якщо менше
+
+let age = parseFloat(prompt('Скільки вам років?'))
+ageResult = age > 18 ? true : false;
+console.log(ageResult);
+
+
+//Отримати від користувача число яке більше 0 і якщо воно більше 100 то порахувати знижку 3% від числа та 
+//вивести в консоль якщо більше 3000 то порахувати знижку 5% і якщо більше 10000 то порахувати знижку 7% в 
+//усіх інших випадках вивести: "У вас нема знижки до сплати число яке було введене"
+
+let number = parseFloat(prompt("Введіть число більше 0:"));
+if (number > 0) {
+  let discount = 0;
+
+  if (number > 100) {
+    discount = 3; 
+  }
+  if (number > 3000) {
+    discount = 5; 
+  }
+  if (number > 10000) {
+    discount = 7; 
+  }
+
+  let discountedPrice = (number * discount) / 100;
+  console.log("Сума зі знижкою: " + discountedPrice);
+} else {
+  console.log('У вас нема знижки до сплати число яке було введене');
+}
+        
