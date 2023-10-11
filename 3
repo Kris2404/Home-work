@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="start.js"></script>
+</head>
+</html>
+
+
+// За допомогою циклу вивести значення від 10 до 0 
+for (let i=0; i<10+1; i++) {
+  console.log (i);
+}
+
+
+// Створити пустий массив і заповнити його всіма парними значеннями від 0 до 8
+
+let emptyArray = [];
+for (let i=0; i<8+1; i++) {
+  if(i % 2 === 0){
+    emptyArray.push(i);
+  }
+}
+console.log(emptyArray);
+
+
+// Створити цикл який виводить значення в консоль з двох масивів в такому форматі "Сьогодні ....  у вас такі плани ..." 
+
+let days = ["Понеділок", "Середа", "Неділя"] 
+let plans = ["Урок 03", "Урок 04", "Вихідний"]
+
+for (let i=0; i<days.length; i++) {
+  console.log(`Сьогодні ${days[i]} у вас такі плани ${plans[i]}`);
+}
+
+
+// Написати цикл який замінює відємне значення в масиві на 0  
+
+let checkArr = [69, 96, -66, 77, 85, -85, 14, -20, 90, -36]
+for (let i=0; i<checkArr.length; i++) {
+  if(checkArr[i]<0) {
+    checkArr[i]=0
+  }
+}
+console.log (checkArr);
+
+
+// Створити змінну в якій за допогою Prompt спитати який день неділі зараз. Далі написати swith який для 
+//вівторок четверг значень виводить ( Сьогодні ${day} у вас урок о 19) для інших днів свої варіанти,  а для 
+//значень що не відповідають умові виведіть default
+
+let day = prompt ('Який день неділі зараз?')
+
+switch(day) {
+  case "Понеділок":
+  case "понеділок":
+     console.log (`Сьогодні ${day} у вас урок о 18`);
+    break
+
+  case "Вівторок":
+  case "вівторок":
+     console.log (`Сьогодні ${day} у вас урок о 19`);
+    break
+
+  case "Середа":
+  case "середа":
+     console.log (`Сьогодні ${day} у вас урок о 17`);
+    break
+
+  case "Четвер":
+  case "четвер":
+     console.log (`Сьогодні ${day} у вас урок о 19`);
+    break
+
+  case "П'ятниця":
+  case "п'ятниця":
+     console.log (`Сьогодні ${day} у вас урок о 12`);
+    break
+
+  case "Субота":
+  case "субота":
+     console.log (`Сьогодні ${day} у вас урок о 13`);
+    break
+
+  case "Неділя":
+  case "неділя":
+     console.log (`Сьогодні ${day} у вас урок о 14`);
+    break
+
+default: {
+  console.log('Невірне значення');
+}
+}
