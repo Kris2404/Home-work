@@ -1,0 +1,94 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="start.js"></script>
+</head>
+</html>
+
+start.js
+
+//1. Створити функцію яка отримує аргументом новий смaйл та масиив і змінює  в масиві смайл  '':)'
+//на новий смайл і повертає массив смайлів (виконати з return) 
+
+let smile = [':)', '=)',':)', '=)',':)', '=)']; 
+function changeSmile (arr, newSmile) {
+  for(let i=0; i<arr.length; i++) {
+    if (arr[i] === ':)'){
+      arr[i] = newSmile
+    }
+  }
+return smile;
+}
+console.log (changeSmile (smile, ':*'));
+
+
+//2. Створити функцію яка  отримує массив і функцію колбек. Функція обробляє массив обєктів і 
+//вираховує площу фігури з даних в обєкті використовуючи колбек. Результатом виконання буде 
+//маси з результатами ['Площа  Squar 12' .... ] Формула для обчислення площі  A*B
+
+let results = []
+
+let figurs = [
+  {
+      figure:"Squar",
+      sizeA: 4,
+      sizeB: 4
+  },
+  {
+      figure:"Rectangle",
+      sizeA: 4,
+      sizeB: 8
+  }
+]
+
+let formula = function (valueA, valueB) {
+  return valueA*valueB
+} 
+
+let callFnback = function (arr, fn) {
+ for( let i=0; i<arr.length; i++){
+  results.push(`Площа  ${arr[i].figure} = ${fn(arr[i].sizeA, arr[i].sizeB)}`)
+ }
+}
+callFnback (figurs, formula);
+console.log(results)
+
+
+//3. Написати функцію яка отримує масив і число (число відповідає за кількість значень 
+//виведених з масива)  якщо число не вказано то вивести 1 значення
+
+let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+let amountLetter = function (value=1) {
+  if (letters.length>0) {
+    for(let i=0; i<value; i++) {
+      console.log (letters[i]);
+    }
+  }
+}
+
+amountLetter()
+console.log('-')
+amountLetter(3)
+
+
+//4. Написати функцію що отримує значення ( first чи last )  та массив, якщо значення first 
+//то видаляє перше значення з масива якщо last видаляє останнє значення
+
+let arr = ['First value', 'test', 'Last'];
+
+let receives = function (arr, value) {
+  if (value === 'first') {
+    arr.shift(); 
+  }
+    if  (value === 'last'){
+    arr.pop();
+    }
+}
+
+receives (arr, 'first');
+console.log(arr);
