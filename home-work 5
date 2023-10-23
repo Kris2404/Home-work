@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+// 1. Створити функцію конструктор яка створює обєкт юзер (з даними імя, прізвище, вік, email  в функції 
+//конструкторі повиний бути метод виводу інформації про юзера, метод повинен бути винесений в прототип.
+
+function CreateUser (userName, userSurname, userAge, userEmail) {
+    this.userName = userName;
+    this.userSurname = userSurname;
+    this.userAge = userAge;
+    this.userEmail = userEmail;
+}
+
+CreateUser.prototype.userInfo = function() {
+  console.log (`Імя ${this.userName} прізвище ${this.userSurname} вік ${this.userAge} email ${this.userEmail}`)
+}
+
+let userFirst = new CreateUser ('Влад', 'Бондаренко', 26, 'vladbond@gmeil.com')
+
+userFirst.userInfo()
+
+
+// 2. Створіть 5 користувачів помістіть їх в массив, а далі використовуючи цикли розглнуті на уроці пройдуть 
+// цей массив і збережіть юзер інфо обєкта (дані з метода в 1 завданні)  в новому масиві
+
+
+function CreateUser (userName, userSurname, userAge, userEmail) {
+  this.userName = userName;
+  this.userSurname = userSurname;
+  this.userAge = userAge;
+  this.userEmail = userEmail;
+}
+
+CreateUser.prototype.userInfo = function() {
+return `Імя ${this.userName} прізвище ${this.userSurname} вік ${this.userAge} email ${this.userEmail}`
+};
+
+let userFirst = new CreateUser ('Влад', 'Бондаренко', 26, 'vladbond@gmeil.com');
+let userSecond = new CreateUser ('Ольга', 'Бондаренко', 28, 'olgabond@gmeil.com');
+let userThird = new CreateUser ('Олег', 'Бондаренко', 30, 'olegbond@gmeil.com');
+let userFourth = new CreateUser ('Никита', 'Бондаренко', 25, 'kolyabond@gmeil.com');
+let userFifth = new CreateUser ('Коля', 'Бондаренко', 31, 'vladbond@gmeil.com');
+
+let users = [userFirst, userSecond, userThird, userFourth, userFifth];
+
+let newInfo = [];
+
+for (let user of users) {
+  newInfo.push(`Клиент ${user.userInfo()}`);
+}
+
+console.log(newInfo)
+
+
+// 3. Створити функцію сорт яка посортує массив з створеними обєктами юзер по віку (в порядку зростання)
+
+function CreateUser (userName, userSurname, userAge, userEmail) {
+  this.userName = userName;
+  this.userSurname = userSurname;
+  this.userAge = userAge;
+  this.userEmail = userEmail;
+}
+
+CreateUser.prototype.userInfo = function() {
+return `Імя ${this.userName} прізвище ${this.userSurname} вік ${this.userAge} email ${this.userEmail}`
+};
+
+let userFirst = new CreateUser ('Влад', 'Бондаренко', 26, 'vladbond@gmeil.com');
+let userSecond = new CreateUser ('Ольга', 'Бондаренко', 28, 'olgabond@gmeil.com');
+let userThird = new CreateUser ('Олег', 'Бондаренко', 30, 'olegbond@gmeil.com');
+let userFourth = new CreateUser ('Никита', 'Бондаренко', 25, 'kolyabond@gmeil.com');
+let userFifth = new CreateUser ('Коля', 'Бондаренко', 31, 'vladbond@gmeil.com');
+
+let users = [userFirst, userSecond, userThird, userFourth, userFifth];
+
+let userSort = users.sort(function(a,b) {
+  return a.userAge-b.userAge
+})
+
+console.log (userSort)
+</script>
+</head>
+</html>
+
