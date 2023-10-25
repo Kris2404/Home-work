@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    
+//1. Створити функцію яка з массиву вибирає всі булеві значення
+
+const sort = [true, 'false', 111, -0, 'true', false, {a:false}, [true, 'false']];
+const choice = sort.filter(value => value === true || value === false);
+console.log(choice)
+
+
+//2. Створити функцію яка повертає сторіччя, функція отримує рік
+// 1810->19
+// 1700 -> 17
+// 1601 ->17 
+// 2000 -> 20
+
+function returnYear(year) {
+    return Math.round(year/100);
+}
+console.log(returnYear(1810));
+console.log(returnYear(1700));
+console.log(returnYear(1601));
+
+
+//3. Cтворити класс конструктор filmMaker який отримує, назву фільма, рік виходу, рейтинг. 
+//Всередині классу створити get метод який виводить всю інформацію про класс
+
+class filmMaker {
+    constructor(filmName, year, rating){
+        this.filmName = filmName;
+        this.year = year;
+        this.rating = rating;
+    }
+    get filmInfo(){
+        return `Назва фільма ${this.filmName}, рік виходу ${this.year}, рейтинг ${this.rating}`;
+    }
+}
+let cinderella = new filmMaker('Попелюшка', 1697, 5);
+console.log(cinderella);
+console.log(cinderella.filmInfo);
+
+
+//4. Створити класс filmDetail який наслідує filmMaker  і отримує ще поля жанр фільму, вікова 
+//категорія , в классі створити get який повертає обєкт з усіма ключами значень з filmMaker і filmDetail
+
+class filmMaker {
+    constructor(filmName, year, rating){
+        this.filmName = filmName;
+        this.year = year;
+        this.rating = rating;
+    }
+
+    get filmInfo(){
+        return `Назва фільма ${this.filmName}, рік виходу ${this.year}, рейтинг ${this.rating}`;
+    }
+}
+let cinderella = new filmMaker('Попелюшка', 1697, 5);
+console.log(cinderella);
+console.log(cinderella.filmInfo);
+class filmDetail extends filmMaker{
+    constructor(filmName, year, rating, genre, age){
+        super(filmName, year, rating);
+        this.genre = genre;
+        this.age = age;
+    }
+    get filmInfo(){
+        return `Назва фільма ${this.filmName}, рік виходу ${this.year}, рейтинг ${this.rating}, жанр фільму ${this.genre}, вікова категорія ${this.age}`;
+    }
+}
+let cinderellaDetail = new filmDetail('Попелюшка', 1697, 5, 'казка', '6+');
+console.log(cinderellaDetail);
+console.log(cinderellaDetail.filmInfo);</script>
+</head>
+</html>
