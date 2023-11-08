@@ -1,0 +1,137 @@
+html, body { 
+    background: url("https://gamerwall.pro/uploads/posts/2021-11/1637284217_1-gamerwall-pro-p-izvest-tekstura-oboi-na-zastavku-1.jpg");
+    font-size: 16px;
+    margin: 0;
+    font-family: CormorantGaramond;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header {
+    padding: 1rem;
+    background: black;
+    color: white;
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.container {
+    background: #fff; 
+    border: 1px solid #2a2626;
+    border-radius: 0.5rem;
+    margin-top: 5rem;
+}
+
+.product {
+    border: 1px solid #777;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    position: relative;
+    background: white;
+    transition: transform 300ms, max-height 500ms;
+    overflow: auto;
+    max-height: 25rem;
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.product:hover {
+   cursor: pointer;
+   transform: scale(1.05);
+   z-index: 1;
+   max-height: 35rem;
+}
+
+.shadow {
+    display: none;
+}
+
+.product:hover .shadow, .product:focus .shadow  {
+    display: block;
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    right: -1px;
+    left: -1px;
+    background: rgba(0,0,0,0.15);
+    z-index: 5;
+    border-radius: 0.5rem;
+}
+
+.product .image-block {
+    text-align: center;
+    height: 15rem;
+}
+
+.product .image {
+    max-width: 100%;
+    max-height: 15rem;
+}
+
+.product .title {
+    margin: 1rem 0;
+}
+
+.product .category {
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    margin-bottom: 0.5rem; 
+}
+
+.product .price {
+    font-size: 1.1rem;
+    color: #e70f0f;
+}
+
+.product .cart-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    background:#3f5976;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 23px;
+    height: 24px;
+    font-size: 15px;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  .count {
+    margin: 0 18px;
+    font-size: 20px;
+  }
+
+  #totalPrice {
+    margin-top: 2rem;
+  }
+
+  .btn {
+    background:#3f5976;
+    color: white;
+    border: none;
+    width: 91px;
+    height: 34px;
+    font-size: 17px;
+  }
