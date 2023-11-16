@@ -16,7 +16,7 @@ window.onload = function() {
           sizeM: 235,
           sizeXL: 255,
           order: 0,
-          orderSize: ''
+          orderSize: '',
       },
       {
           pizzaName: 'Dimare',
@@ -25,7 +25,7 @@ window.onload = function() {
           sizeM: 310,
           sizeXL: 340,
           order: 0,
-          orderSize: ''
+          orderSize: '',
       },
       {
           pizzaName: 'JoeBlack',
@@ -34,7 +34,7 @@ window.onload = function() {
           sizeM: 332,
           sizeXL: 352,
           order: 0,
-          orderSize: ''
+          orderSize: '',
       },
       {
           pizzaName: 'Горгонзола',
@@ -43,7 +43,7 @@ window.onload = function() {
           sizeM: 239,
           sizeXL: 259,
           order: 0,
-          orderSize: ''
+          orderSize: '',
       },
       {
           pizzaName: 'Лесная',
@@ -52,7 +52,7 @@ window.onload = function() {
           sizeM: 219,
           sizeXL: 239,
           order: 0,
-          orderSize: ''
+          orderSize: '',
       },
       {
           pizzaName: 'Бьянко',
@@ -61,7 +61,7 @@ window.onload = function() {
           sizeM: 326,
           sizeXL: 346,
           order: 0,
-          orderSize: ''
+          orderSize: '',
       },
       {
           pizzaName: 'Венецианская',
@@ -70,7 +70,7 @@ window.onload = function() {
           sizeM: 330,
           sizeXL: 350,
           order: 0,
-          orderSize: ''
+          orderSize: '',
       },
       {
           pizzaName: 'Верона',
@@ -79,7 +79,7 @@ window.onload = function() {
           sizeM: 321,
           sizeXL: 341,
           order: 0,
-          orderSize: ''
+          orderSize: '',
       },
   ];
 
@@ -89,16 +89,15 @@ window.onload = function() {
 
   function updateTotalPrice() {
     let totalPrice = 0;
-    const orderSize = document.querySelector('input[name="inlineRadioOptions"]:checked');
-    if (orderSize) {
+    const orderSizeElements = document.querySelectorAll('input[name^="inlineRadioOptions"]:checked');
+    orderSizeElements.forEach(orderSize => {
       const sizeValue = orderSize.value;
-      menu.forEach(item => {
-        totalPrice += item.order * item[sizeValue];
-      });
-    }
+      const pizzaIndex = orderSize.dataset.pizzaIndex;
+      totalPrice += menu[pizzaIndex].order * menu[pizzaIndex][sizeValue];
+    });
     totalPriceElement.textContent = `Вартість замовлення: ${totalPrice} грн`;
   }
-
+  
   decreaseButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
       if (menu[index].order > 0) {
@@ -148,3 +147,5 @@ window.onload = function() {
   })
  
 };
+
+ 
